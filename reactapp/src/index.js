@@ -3,27 +3,69 @@ import ReactDom from "react-dom";
 import "./index.css";
 
 //setup vars
-const author = "James Clear";
-const title = "Atomic Habits";
-const img =
-  "https://images-na.ssl-images-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg";
+
+const books = [
+  {
+    id: 1,
+    author: "James Clear",
+    title: "Atomic Habits",
+    img: "https://images-na.ssl-images-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
+  },
+
+  {
+    id: 2,
+    author: "Amelia Hepworth",
+    title: "I Love You to the Moon and Back",
+    img: "https://images-na.ssl-images-amazon.com/images/I/51p2SDOCV9L._SX482_BO1,204,203,200_.jpg",
+  },
+  {
+    id: 3,
+    author: "Ann Whitford Paul",
+    title: "If Animals Kissed Good Night",
+    img: "https://images-na.ssl-images-amazon.com/images/I/81nzxODnaJL._AC_UL604_SR604,400_.jpg",
+  },
+];
+
+// const names = ["john", "peter", "susan"];
+// const newNames = names.map((name) => {
+//   return <h1>{name}</h1>;
+// });
+// console.log(newNames);
+
 function BookList() {
   return (
     <section className="booklist">
-      <Book />
-      <Book />
+      {books.map((book) => {
+        const { author, title, img } = book;
+        return <Book key={book.id} {...book}></Book>;
+      })}
+
+      {/* <Book
+        img={firstBook.img}
+        title={firstBook.title}
+        author={firstBook.author}
+      ></Book>
+      <Book
+        img={secondBook.img}
+        title={secondBook.title}
+        author={secondBook.author}
+      /> */}
     </section>
   );
 }
 
 const Book = (props) => {
   console.log(props);
+  //console.log(props.book);
+  const { img, title, author } = props;
+  // const clickHandler = () => {
+  //   return alert("hello world");
+  // };
   return (
     <article className="book">
       <img src={img} alt="Atomic habits"></img>
-      <h1>{title}</h1>
+      <h1 onClick={() => console.log(title)}>{title}</h1>
       <h4>{author}</h4>
-      {console.log(props)}
     </article>
   );
 };

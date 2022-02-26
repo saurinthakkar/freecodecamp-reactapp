@@ -3,28 +3,9 @@ import ReactDom from "react-dom";
 import "./index.css";
 
 //setup vars
-
-const books = [
-  {
-    id: 1,
-    author: "James Clear",
-    title: "Atomic Habits",
-    img: "https://images-na.ssl-images-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg",
-  },
-
-  {
-    id: 2,
-    author: "Amelia Hepworth",
-    title: "I Love You to the Moon and Back",
-    img: "https://images-na.ssl-images-amazon.com/images/I/51p2SDOCV9L._SX482_BO1,204,203,200_.jpg",
-  },
-  {
-    id: 3,
-    author: "Ann Whitford Paul",
-    title: "If Animals Kissed Good Night",
-    img: "https://images-na.ssl-images-amazon.com/images/I/81nzxODnaJL._AC_UL604_SR604,400_.jpg",
-  },
-];
+import { books } from "./books";
+import Book from "./Book";
+import { greeting } from "./testing/testing";
 
 // const names = ["john", "peter", "susan"];
 // const newNames = names.map((name) => {
@@ -33,6 +14,7 @@ const books = [
 // console.log(newNames);
 
 function BookList() {
+  console.log(greeting);
   return (
     <section className="booklist">
       {books.map((book) => {
@@ -53,22 +35,6 @@ function BookList() {
     </section>
   );
 }
-
-const Book = (props) => {
-  console.log(props);
-  //console.log(props.book);
-  const { img, title, author } = props;
-  // const clickHandler = () => {
-  //   return alert("hello world");
-  // };
-  return (
-    <article className="book">
-      <img src={img} alt="Atomic habits"></img>
-      <h1 onClick={() => console.log(title)}>{title}</h1>
-      <h4>{author}</h4>
-    </article>
-  );
-};
 
 // const Title = () => <h1>Atomic Habits</h1>;
 // const Author = () => (
